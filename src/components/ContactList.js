@@ -8,11 +8,13 @@ class ContactList extends Component {
   };
 
   addRandomContact = () => {
-    const contact = this.state.contacts[Math.floor(Math.random() * this.state.contacts.length)];
+    const contact = this.state.contacts[
+      Math.floor(Math.random() * this.state.contacts.length)
+    ];
     let contacts = [...this.state.contacts];
-    contacts.push(contacts);
+    contacts.push(contact);
 
-    this.setState({ contacts: contact });
+    this.setState({ contacts: contacts });
   };
 
   sortOrdered = () => {
