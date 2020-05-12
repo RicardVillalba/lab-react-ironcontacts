@@ -8,9 +8,24 @@ class ContactList extends Component {
   };
 
   addRandomContact = () => {
-    const contact = contacts[Math.floor(Math.random() * contacts.length)];
+    const contact = this.state.contacts[Math.floor(Math.random() * this.state.contacts.length)];
     let contacts = [...this.state.contacts];
     contacts.push(contacts);
+
+    this.setState({ contacts: contact });
+  };
+
+  sortOrdered = () => {
+    let orderedList = this.state.contacts.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    this.setState({ contacts: orderedList });
   };
 
   deleteContact = (id) => {
@@ -31,6 +46,7 @@ class ContactList extends Component {
               {...contactObj}
               removeContact={this.deleteContact}
               addContact={this.addRandomContact}
+              orderContactList={this.sortOrdered}
             />
           );
         })}

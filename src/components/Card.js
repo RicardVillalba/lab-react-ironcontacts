@@ -9,7 +9,7 @@ function Card(props) {
     <li>
         <button onClick={() => props.removeContact(props.id)} className="btn-delete"> Delete </button>
         <button onClick={() => props.addContact()} className="btn-add"> add_random </button>
-        
+        <button onClick={() => props.orderContactList()} className="btn-delete"> sort </button>
      
       <img src = {props.pictureUrl}/>
       <h4>Name: {props.name}</h4>
